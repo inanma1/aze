@@ -1,0 +1,220 @@
+@font-face {
+    font-family: manrope;
+    src:url("../fonts/Manrope/Manrope-VariableFont_wght.ttf");
+}
+* {
+    font-family: manrope;
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color:rgb(255, 111, 27);
+    --gray: rgb(243, 243, 243);
+    --article-nav-width: 350px;
+}
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+a {
+    text-decoration: none;
+    color:black;
+}
+p {
+    text-indent: 20px;
+}
+header {
+    width: 100vw;
+    float: left;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background:var(--primary-color);
+    justify-content: space-between;
+    color:white;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    padding: 20px;
+}
+button {
+    background-color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+#article-nav {
+    float: left;
+    background:rgb(243, 243, 243);
+    display: flex;
+    flex-flow: column;
+    height: calc(100svh - 100px);
+    justify-content: flex-start;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    transition: 0.5s margin-left ease;
+    box-sizing: border-box;
+    z-index: 1;
+    gap: 20px;
+}
+#article-nav ul {
+    list-style-type:disc;
+}
+#article-nav > h2 {
+    font-size: xx-large;
+    text-align: center;
+    margin: 0;
+    margin-top: 30px;
+}
+#article-nav ul li a{
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 20px;
+    transition: 0.2s transform ease;
+    text-decoration: none;
+    color: black;
+}
+#article-nav ul li a:hover {
+    background:rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transform: translateX(5px);
+}
+#article-nav-toggle {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: larger;
+    font-weight: bolder;
+    display: none;
+
+}
+article > h2 {
+    padding: 0 50px;
+}
+body > main > article {
+    overflow-y:auto;
+    display: flex;
+    flex-flow: column;
+}
+header a {
+    color:white;
+    font-size: x-large;
+}
+header a:hover {
+    text-decoration: underline;
+}
+main > article section{
+    padding: 0px 50px;
+}
+
+footer {
+    float: left;
+    padding: 30px 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background:var(--primary-color);
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    margin-top: auto;
+}
+footer > form > label {
+    font-size: xx-large;
+    font-weight: bolder;
+    display: inline-block;
+    margin: 5px 0;
+}
+footer > form {
+    width: 75%;
+}
+footer > form input, footer > form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    outline: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+footer > form textarea {
+    resize: none;
+    height: 400px;
+}
+footer > form > h2 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+button:hover {
+    background-color: rgb(57, 179, 0);
+    color:white;
+}
+
+table {
+    width: 75%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 15px auto;
+}
+
+table > thead tr td {
+    background-color: var(--primary-color);
+    color:white;
+    text-align: center;
+}
+
+table > tbody tr td {
+    background: var(--gray);
+}
+
+main {
+    height: calc(100svh - 100px);
+    width: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: var(--article-nav-width) auto;
+}
+.image-container img{
+    max-width: 30%;
+    float:left;
+}
+.image-container {
+    display: flex;
+    flex-flow: column;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width:900px){
+    main > article > section > table {
+        width: 100%;
+    }
+    #article-nav > button {
+        display: inline;
+        margin-left: var(--article-nav-width);
+        border-radius: 0;
+    }
+    #article-nav {
+        margin-left: calc(0px - var(--article-nav-width));
+        position: absolute;
+        width: var(--article-nav-width);
+    }
+    #article-nav.opened {
+        margin-left: 0;
+    }
+    main {
+        height: calc(100svh - 100px);
+        width: 100%;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .image-container img{
+        max-width: 80%;
+        float:left;
+    }
+}
